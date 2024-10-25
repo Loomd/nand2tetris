@@ -7,6 +7,7 @@ This repository contains an **Assembler** for the **Hack machine**, designed as 
 ## Table of Contents
 
 - [Overview](#overview)
+- [Building and Running](#building-and-running)
 - [Hack Machine Language](#hack-machine-language)
   - [A-Instruction](#a-instruction)
   - [C-Instruction](#c-instruction)
@@ -34,7 +35,32 @@ The Hack assembler converts Hack assembly language into Hack binary machine lang
 ![n2t_hack_compute_archi](https://github.com/user-attachments/assets/5f56f6df-a028-4cff-8e35-1b9bd33d77e8)
 
 
+---
 
+## Building and Running
+
+### Prerequisites
+
+- **C++ compiler** (g++ recommended)
+- Make (optional)
+
+### Building from Source
+- **Compile the source files**:
+  - `g++ -I./include -c src/Assembler.cpp src/Parser.cpp src/BinCodes.cpp src/SymbolTables.cpp`
+- **Link the object files**:
+  - `g++ -o Assembler Assembler.o Parser.o BinCodes.o SymbolTables.o`
+
+### Running the Assembler
+- **Run the executable**:
+  - `./Assembler.exe`
+- **When prompted, enter the path to your '.asm' file**:
+  - Enter the filename with extension ('filename.asm'): `path/to/your/program.asm`
+- **If successful, a '.hack' file will be created in the same directory as your '.asm' file.**
+
+### Example Usage
+- `./Assembler.exe`
+- Enter the filename with extension ('filename.asm'): `../tests/Add.asm`
+- `Assembly completed successfully.`
 
 ---
 
