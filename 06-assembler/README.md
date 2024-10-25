@@ -32,7 +32,8 @@ The Hack assembler converts Hack assembly language into Hack binary machine lang
 - **16-bit von Neumann architecture**.
 - **32K Instruction Memory (ROM)**.
 - **32K Data Memory (RAM)**, with memory-mapped I/O devices for the screen and keyboard.
-![n2t_hack_compute_archi](https://github.com/user-attachments/assets/5f56f6df-a028-4cff-8e35-1b9bd33d77e8)
+
+![n2t_hack_compute_archi](https://github.com/user-attachments/assets/5bff06de-5320-4b2a-87c7-264cb54669de)
 
 
 ---
@@ -98,6 +99,9 @@ The **C-Instruction** performs computations and manages conditional jumps.
   - `comp`: Specifies the computation to perform (e.g., `D+1` → `001110`).
   - `dest`: Where to store the result (e.g., `D` → `010`).
   - `jump`: Jump condition (e.g., `JEQ` → `010`).
+![n2t_c_instruction_binary_syntax](https://github.com/user-attachments/assets/8af64cc1-ef20-48a9-ba91-7692883ef56b)
+
+![n2t_c_instruction_comp](https://github.com/user-attachments/assets/2df0dee9-9b9f-40f7-8b8d-64b3e93c1746)
 
 ---
 
@@ -110,9 +114,12 @@ Hack assembly supports symbolic addressing for memory locations, labels, and var
 Certain RAM addresses are predefined for easy reference:
 
 - **Registers**: `R0` to `R15` map to RAM addresses 0 to 15.
-- 
-- ![n2t_virtual_register](https://github.com/user-attachments/assets/8ba70bcd-123e-424e-87f9-154d4a6dda82)
-- 
+![n2t_hack_program_add2numbers](https://github.com/user-attachments/assets/62dc3310-17bb-450a-b1cd-e798152691c2)
+
+![n2t_virtual_register](https://github.com/user-attachments/assets/5861b73c-8370-48b8-ae23-eb55b85d9fce)
+
+
+
 - **Special Pointers**:
   - `SP` (Stack Pointer) = 0
   - `LCL` (Local Segment Pointer) = 1
@@ -123,6 +130,9 @@ Certain RAM addresses are predefined for easy reference:
   - `SCREEN` = 16384 (Base address of the screen in memory).
   - `KBD` = 24576 (Keyboard input).
 
+![n2t_hack_character_set](https://github.com/user-attachments/assets/46c2bc2d-e5c1-4e78-ad6f-854991343a95)
+
+
 ### Label Symbols
 
 Labels are used to mark destinations in the code for `goto` commands and jumps. Labels are declared in parentheses.
@@ -131,7 +141,8 @@ Labels are used to mark destinations in the code for `goto` commands and jumps. 
   - Example: `(LOOP)` creates a label `LOOP`.
   - `@LOOP` references this label and jumps to the instruction at `LOOP`.
   
-  - ![n2t_symbolic_reference](https://github.com/user-attachments/assets/3a0df1c1-1921-47d5-9bc5-cbbfc7d8685c)
+![n2t_symbolic_reference](https://github.com/user-attachments/assets/79b59e10-f2c4-4d9d-a57f-17ce6f743e04)
+
 
 
 ### Variable Symbols
@@ -140,7 +151,8 @@ Labels are used to mark destinations in the code for `goto` commands and jumps. 
 
 - Example: use temp to exchange the content of R0 and R1
 
-![n2t_variable](https://github.com/user-attachments/assets/1fa5e025-63c1-4a62-bfc6-f470d50d7a1b)
+![n2t_variable](https://github.com/user-attachments/assets/dbf7ea33-e1e4-4013-81ca-1b6bb792d33e)
+
 
 - here , temp don't have a corresponding label called temp. how it works ?
 - Basically , we present the following pledge to the computer:
@@ -151,7 +163,8 @@ Labels are used to mark destinations in the code for `goto` commands and jumps. 
   - Variable are allocated to the RAM from adderss 16 onward.
     - in this example , we have only 1 variable, so it ends up being allocated to RAM 16.
       
-![n2t_variable_rom](https://github.com/user-attachments/assets/aa4f18cc-5695-4ae1-a886-651791fa03ee)
+
+![n2t_variable_rom](https://github.com/user-attachments/assets/1a0399e8-1a08-4a9c-a604-d655a06616f1)
 
 
 ---
@@ -172,13 +185,11 @@ Labels are used to mark destinations in the code for `goto` commands and jumps. 
 2. Convert each component into its corresponding binary code.
 3. Assemble the final binary representation in the format `111acccccccdddjjj`.
    
-![n2t_c_instruction_binary_syntax](https://github.com/user-attachments/assets/038736e3-ea1c-44ee-bc64-2beb3e6cc932)
+![n2t_c_binary_comp](https://github.com/user-attachments/assets/71bb7484-cf38-434c-8554-98581a9339bb)
 
-![n2t_c_binary_comp](https://github.com/user-attachments/assets/f25271c8-547b-4acf-af16-b27b556ba5ef)
+![n2t_c_binary_dest](https://github.com/user-attachments/assets/a4e468f1-9d3f-4bd3-923c-6904c24535e0)
 
-![n2t_c_binary_dest](https://github.com/user-attachments/assets/956c7aa5-58b4-4e57-a5e8-da3d289c4c58)
-
-![n2t_c_binary_jump](https://github.com/user-attachments/assets/c7fd19fa-7ebd-40b7-88ea-a394e700f611)
+![n2t_c_binary_jump](https://github.com/user-attachments/assets/dc2b58a5-b04f-4ed2-abe2-cf83dfa06a6a)
 
 
 ### Handling Symbols
@@ -193,6 +204,5 @@ Labels are used to mark destinations in the code for `goto` commands and jumps. 
 - **Input**: Hack assembly code files (`.asm`).
 - **Output**: Binary machine code files (`.hack`), with each line representing a 16-bit machine instruction.
 
-![n2t_hack_character_set](https://github.com/user-attachments/assets/967c6aba-7075-496d-8b9a-5876e8651333)
 
 ---
