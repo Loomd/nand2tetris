@@ -19,9 +19,9 @@
 #include <string>
 #include <algorithm>
 #include <sstream>
-#include "Parser.h"
-#include "SymbolTables.h"
-#include "BinCodes.h"
+#include "../include/Parser.h"
+#include "../include/SymbolTables.h"
+#include "../include/BinCodes.h"
 
 using namespace std;
 

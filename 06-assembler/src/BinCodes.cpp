@@ -18,8 +18,8 @@
 #include <fstream>
 #include <string>
 #include <bitset>
-#include "BinCodes.h"
-#include "SymbolTables.h"
+#include "../include/BinCodes.h"
+#include "../include/SymbolTables.h"
 
 
 using namespace std;

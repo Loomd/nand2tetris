@@ -13,7 +13,7 @@
  *                     Each symbol maps to a unique memory address.
  *  - `auto`: A keyword used for automatic type deduction, especially useful for iterators.
  */
-#include "SymbolTables.h"
+#include "../include/SymbolTables.h"
 #include <iostream>
 #include <string>
 #include <unordered_map>
