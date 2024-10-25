@@ -1,0 +1,32 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/1/DMux4Way.hdl
+/**
+ * 4-way demultiplexor:
+ * [a, b, c, d] = [in, 0, 0, 0] if sel = 00
+ *                [0, in, 0, 0] if sel = 01
+ *                [0, 0, in, 0] if sel = 10
+ *                [0, 0, 0, in] if sel = 11
+ */
+CHIP DMux4Way {
+    IN in, sel[2];
+    OUT a, b, c, d;
+
+    PARTS:
+    // First DMux splits input based on MSB of sel.
+    // if sel[1] = 0, input is routed to AB.
+    // if sel[1] = 1, input is routed to CD.
+    DMux(in=in , sel=sel[1] , a=AB , b=CD);
+
+    // After input is routed it's split 
+    // based on LSB of sel.
+    
+    // if sel[0] = 0, input is routed to a.
+    // if sel[0] = 1, input is routed to b.
+    DMux(in=AB , sel=sel[0] , a=a , b=b);
+
+    // if sel[0] = 0, input is routed to c.
+    // if sel[0] = 1, input is routed to d.
+    DMux(in=CD , sel=sel[0] , a=c , b=d);
+}

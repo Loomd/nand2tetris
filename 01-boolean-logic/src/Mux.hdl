@@ -1,0 +1,40 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/1/Mux.hdl
+/** 
+ * Multiplexor:
+ * if (sel = 0) out = a, else out = b
+ * The Mux (Multiplexer) selects between two inputs (a and b) based on a selector signal (sel).
+ * If sel = 0, the output is a.
+ * If sel = 1, the output is b.
+ */
+
+CHIP Mux {
+    IN a, b, sel;
+    OUT out;
+
+    PARTS:
+    // Invert the selector 'sel' to 
+    // create 'sel1'.
+    // 'sel1' will be the opposite of 'sel'.
+    // If sel = 0, sel1 = 1. If sel = 1, sel1 = 0.
+    Not(in=sel, out=sel1);
+    // AND gate to select 'a' when sel = 0:
+    // If sel = 0 (i.e., sel1 = 1), 
+    // the 'a' input is passed through 'aAnd'.
+    // If sel = 1 (i.e., sel1 = 0), 'aAnd' is 0.
+    And(a=a, b=sel1, out=aAnd);
+    // AND gate to select 'b' when sel = 1:
+    // If sel = 1, the 'b' input is passed 
+    // through 'bAnd'.
+    // If sel = 0, 'bAnd' is 0.
+    And(a=b, b=sel, out=bAnd);
+    // OR gate to combine the two possible 
+    // outputs:
+    // If sel = 0, aAnd = a and bAnd = 0, 
+    // so the output is a.
+    // If sel = 1, aAnd = 0 and bAnd = b, 
+    // so the output is b.
+    Or(a=aAnd, b=bAnd, out=out);
+}

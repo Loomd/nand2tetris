@@ -1,0 +1,28 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/1/DMux.hdl
+/**
+ * Demultiplexor:
+ * [a, b] = [in, 0] if sel = 0
+ *          [0, in] if sel = 1
+ */
+CHIP DMux {
+    IN in, sel;
+    OUT a, b;
+
+    PARTS:
+    // Invert selector 'sel' to create 'Notsel;'.
+    // 'Notsel' will be the opposite of 'sel'.
+    // If sel = 0, Notsel = 1.
+    Not(in=sel, out=Notsel);
+    // The first And gate:
+    // When Notsel = 1,'in' is passed to 'a'.
+    // When Notsel = 0,'a' becomes 0.
+    And(a=Notsel, b=in, out=a);
+    // The second And gate:
+    // When sel = 1, 'in' is passed to 'b'.
+    // When sel = 0, 'b' becomes 0.
+    And(a=sel, b=in, out=b);
+
+}
