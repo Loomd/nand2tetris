@@ -1,6 +1,6 @@
 # Hack Assembler
 
-This repository contains an **Assembler** for the **Hack machine**, designed as part of the Nand2Tetris project. The Hack machine is a simple 16-bit computer with a minimal instruction set, perfect for educational purposes. This assembler translates Hack assembly language programs (`.asm` files) into binary machine language (`.hack` files) that can be executed by the Hack CPU.
+This repository contains an **Assembler** for the **Hack machine**, designed as part of the Nand2Tetris project. The Hack machine is a simple 16-bit computer and the assembler translates Hack assembly language programs (`.asm` files) into binary machine language (`.hack` files) that can be executed by the Hack CPU.
 
 [](...menustart)
 
